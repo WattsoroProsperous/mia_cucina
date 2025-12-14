@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mia Cucina - Restaurant Italien à Abidjan. Cuisine Européenne et Spécialités Italiennes. Plateau, Côte d'Ivoire.">
+    <meta name="keywords" content="restaurant, italien, pizza, pâtes, Abidjan, Plateau, Côte d'Ivoire, cuisine européenne">
+    <title>Mia Cucina | Restaurant - Pizzeria | Abidjan</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <img src="assets/logo.jpg" alt="Mia Cucina Logo">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Accueil</a>
+                <a href="#about" class="nav-link">À Propos</a>
+                <a href="#menu" class="nav-link">Nos Plats</a>
+                <a href="#gallery" class="nav-link">Galerie</a>
+                <a href="#hours" class="nav-link">Horaires</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="tel:+22507684341" class="nav-phone">
+                    <i class="fas fa-phone"></i>
+                    <span>07 68 43 41 42</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Bienvenue chez</span>
+            <h1 class="hero-title">Mia Cucina</h1>
+            <p class="hero-tagline">Restaurant - Pizzeria</p>
+            <div class="hero-description">
+                <span class="hero-cuisine"><i class="fas fa-utensils"></i> Cuisine Européenne</span>
+                <span class="hero-divider">|</span>
+                <span class="hero-cuisine"><i class="fas fa-pizza-slice"></i> Spécialité Italienne</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Découvrir nos plats</a>
+                <a href="tel:+2250768434142" class="btn btn-secondary">Réserver une table</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#about">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-subtitle">Notre Histoire</span>
+                    <h2 class="section-title">Un Nouveau Visage du Restaurant</h2>
+                    <p class="about-description">
+                        Bienvenue chez <strong>Mia Cucina</strong>, votre destination gastronomique au cœur d'Abidjan.
+                        Nous vous proposons une expérience culinaire exceptionnelle alliant les saveurs authentiques
+                        de la cuisine européenne avec une spécialisation dans les délices italiens.
+                    </p>
+                    <p class="about-description">
+                        Notre chef passionné prépare chaque plat avec des ingrédients frais et de qualité,
+                        pour vous offrir des moments de pur plaisir gustatif. Des pizzas artisanales aux
+                        pâtes fraîches, en passant par nos fruits de mer et viandes grillées, chaque
+                        création est une invitation au voyage culinaire.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <span>Ingrédients Frais</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <span>Chef Expérimenté</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Fait Maison</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-img-wrapper">
+                        <img src="assets/nos plats/langouste grillé.png" alt="Langouste grillée Mia Cucina">
+                    </div>
+                    <div class="about-badge">
+                        <span class="badge-number">100%</span>
+                        <span class="badge-text">Qualité</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nos Spécialités</span>
+                <h2 class="section-title">Découvrez Nos Plats</h2>
+                <p class="section-description">Une sélection raffinée de mets préparés avec passion</p>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="assets/nos plats/côtes d'agneau.png" alt="Côtes d'agneau">
+                        <div class="menu-item-overlay">
+                            <span class="menu-item-category">Viandes</span>
+                        </div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Côtes d'Agneau</h3>
+                        <p class="menu-item-description">Tendres côtes d'agneau grillées à la perfection</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="assets/nos plats/langouste grillé.png" alt="Langouste grillée">
+                        <div class="menu-item-overlay">
+                            <span class="menu-item-category">Fruits de Mer</span>
+                        </div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Langouste Grillée</h3>
+                        <p class="menu-item-description">Langouste fraîche grillée aux herbes aromatiques</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="assets/nos plats/amatriciana.png" alt="Amatriciana">
+                        <div class="menu-item-overlay">
+                            <span class="menu-item-category">Pâtes</span>
+                        </div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Amatriciana</h3>
+                        <p class="menu-item-description">Pâtes traditionnelles à la sauce tomate et guanciale</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="assets/nos plats/nouilles italienne.png" alt="Nouilles italiennes">
+                        <div class="menu-item-overlay">
+                            <span class="menu-item-category">Pâtes</span>
+                        </div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Nouilles Italiennes</h3>
+                        <p class="menu-item-description">Nouilles fraîches préparées selon la tradition</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="assets/nos plats/salade de poulpes.png" alt="Salade de poulpes">
+                        <div class="menu-item-overlay">
+                            <span class="menu-item-category">Entrées</span>
+                        </div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Salade de Poulpes</h3>
+                        <p class="menu-item-description">Poulpe tendre mariné aux saveurs méditerranéennes</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="assets/nos plats/Gratin de Pâtes au poulet.png" alt="Gratin de Pâtes">
+                        <div class="menu-item-overlay">
+                            <span class="menu-item-category">Pâtes</span>
+                        </div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Gratin de Pâtes au Poulet</h3>
+                        <p class="menu-item-description">Pâtes gratinées au poulet et fromage fondant</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-cta">
+                <a href="tel:+2250768434142" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Commander - 07 68 43 41 42
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Notre Ambiance</span>
+                <h2 class="section-title">Galerie Photos</h2>
+                <p class="section-description">Découvrez l'atmosphère chaleureuse de Mia Cucina</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-item-large">
+                    <img src="assets/nos plats/salad ceasar carrousel/1.jpg" alt="Salade César">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos plats/salad ceasar carrousel/2.jpg" alt="Préparation salade">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos plats/salad ceasar carrousel/3.jpg" alt="Détail salade">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hot moments/happy client.png" alt="Clients satisfaits">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos boisson/Le Cognac sunset.png" alt="Cocktail Cognac Sunset">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos boisson/apero.png" alt="Apéritif">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section class="hours" id="hours">
+        <div class="hours-overlay"></div>
+        <div class="container">
+            <div class="hours-content">
+                <div class="hours-info">
+                    <span class="section-subtitle">Quand Nous Visiter</span>
+                    <h2 class="section-title">Horaires d'Ouverture</h2>
+                    <div class="hours-list">
+                        <div class="hours-item closed">
+                            <span class="day">Lundi</span>
+                            <span class="time">Fermé</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Mardi</span>
+                            <span class="time">11:00 - 23:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Mercredi</span>
+                            <span class="time">11:00 - 23:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Jeudi</span>
+                            <span class="time">11:00 - 23:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Vendredi</span>
+                            <span class="time">11:00 - 00:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Samedi</span>
+                            <span class="time">11:00 - 00:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Dimanche</span>
+                            <span class="time">12:00 - 23:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hours-reservation">
+                    <div class="reservation-card">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h3>Réservation</h3>
+                        <p>Pour une meilleure expérience, nous vous recommandons de réserver votre table</p>
+                        <a href="tel:+2250768434142" class="btn btn-primary">
+                            <i class="fas fa-phone"></i> 07 68 43 41 42
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nous Trouver</span>
+                <h2 class="section-title">Contact & Localisation</h2>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Adresse</h4>
+                                <p>Après la Bridge Bank<br>Rue du Commerce, Plateau<br>Abidjan, Côte d'Ivoire</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Téléphone</h4>
+                                <p><a href="tel:+2250768434142">07 68 43 41 42</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Site Web</h4>
+                                <p><a href="https://mia_cucina.ci" target="_blank">mia_cucina.ci</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Instagram</h4>
+                                <p><a href="https://www.instagram.com/mia_cucina__/" target="_blank">@mia_cucina__</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="https://www.instagram.com/mia_cucina__/" target="_blank" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="tel:+2250768434142" class="social-link" aria-label="Téléphone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://www.google.com/maps/place/MiaCucina/@5.3271506,-4.003805,17z" target="_blank" class="social-link" aria-label="Google Maps">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.5!2d-4.003805!3d5.3271506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eb729f32b6bb%3A0xc10aa3b3b1d1372d!2sMiaCucina!5e0!3m2!1sfr!2sci!4v1702500000000!5m2!1sfr!2sci"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo.jpg" alt="Mia Cucina Logo" class="footer-logo">
+                    <p class="footer-tagline">Restaurant - Pizzeria</p>
+                    <p class="footer-description">Cuisine Européenne & Spécialité Italienne</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="#home">Accueil</a>
+                    <a href="#about">À Propos</a>
+                    <a href="#menu">Nos Plats</a>
+                    <a href="#gallery">Galerie</a>
+                    <a href="#hours">Horaires</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 07 68 43 41 42</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Plateau, Abidjan</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mia_cucina__/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mia Cucina. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
