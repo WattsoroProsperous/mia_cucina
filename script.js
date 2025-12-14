@@ -30,12 +30,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // PRELOADER
     // ===================================
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-            document.body.style.overflow = 'visible';
-        }, 800);
-    });
+    function hidePreloader() {
+        if (preloader) {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+                document.body.style.overflow = 'visible';
+            }, 800);
+        }
+    }
+
+    // Check if page is already loaded
+    if (document.readyState === 'complete') {
+        hidePreloader();
+    } else {
+        window.addEventListener('load', hidePreloader);
+    }
+
+    // Fallback: hide preloader after 3 seconds max
+    setTimeout(hidePreloader, 3000);
 
     // ===================================
     // NAVBAR SCROLL EFFECT
@@ -307,23 +319,79 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===================================
-    // VIDEO OPTIMIZATION
+    // CHEF VIDEO PLAYER
     // ===================================
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
-        // Pause videos when not in viewport
-        const videoObserver = new IntersectionObserver((entries) => {
+    const chefVideo = document.getElementById('chefVideo');
+    const videoPlayBtn = document.getElementById('videoPlayBtn');
+    const videoProgressBar = document.getElementById('videoProgressBar');
+
+    if (chefVideo && videoPlayBtn) {
+        // Play/Pause toggle
+        videoPlayBtn.addEventListener('click', () => {
+            if (chefVideo.paused) {
+                chefVideo.play();
+                videoPlayBtn.classList.add('playing');
+                videoPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                chefVideo.pause();
+                videoPlayBtn.classList.remove('playing');
+                videoPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+
+        // Click on video to toggle play/pause
+        chefVideo.addEventListener('click', () => {
+            videoPlayBtn.click();
+        });
+
+        // Update progress bar
+        chefVideo.addEventListener('timeupdate', () => {
+            const progress = (chefVideo.currentTime / chefVideo.duration) * 100;
+            if (videoProgressBar) {
+                videoProgressBar.style.width = progress + '%';
+            }
+        });
+
+        // Reset when video ends
+        chefVideo.addEventListener('ended', () => {
+            videoPlayBtn.classList.remove('playing');
+            videoPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+            if (videoProgressBar) {
+                videoProgressBar.style.width = '0%';
+            }
+        });
+
+        // Pause video when not in viewport
+        const chefVideoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    video.play().catch(() => {});
-                } else {
-                    video.pause();
+                if (!entry.isIntersecting && !chefVideo.paused) {
+                    chefVideo.pause();
+                    videoPlayBtn.classList.remove('playing');
+                    videoPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
                 }
             });
         }, { threshold: 0.25 });
 
-        videoObserver.observe(video);
-    });
+        chefVideoObserver.observe(chefVideo);
+    }
+
+    // ===================================
+    // VIDEO OPTIMIZATION (Hero)
+    // ===================================
+    // heroVideo already defined above in PARALLAX section
+    if (heroVideo) {
+        const heroVideoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroVideo.play().catch(() => {});
+                } else {
+                    heroVideo.pause();
+                }
+            });
+        }, { threshold: 0.25 });
+
+        heroVideoObserver.observe(heroVideo);
+    }
 
     // ===================================
     // PHONE NUMBER CLICK TRACKING

@@ -25,19 +25,11 @@
     <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-inner">
-            <img src="assets/logo.jpg" alt="Mia Cucina">
-            <div class="preloader-spinner"></div>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <img src="assets/logo.jpg" alt="Mia Cucina Logo">
+                <span class="logo-text">Mia Cucina</span>
             </a>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link active">Accueil</a>
@@ -179,23 +171,57 @@
         </div>
     </section>
 
-    <!-- Chef Video Section -->
-    <section class="chef-section">
-        <div class="chef-video-wrapper">
-            <video autoplay muted loop playsinline class="chef-video">
-                <source src="assets/chef story.mp4" type="video/mp4">
-            </video>
-            <div class="chef-overlay"></div>
-        </div>
+    <!-- Chef Story Section -->
+    <section class="chef-section" id="chef">
         <div class="container">
-            <div class="chef-content" data-aos="fade-up">
-                <span class="section-label light">Le Chef</span>
-                <h2 class="section-title light">De la Qualité, du Goût<br>et de la Saveur</h2>
-                <p class="chef-text">
-                    Chaque plat est une création unique, préparée avec soin et expertise par notre chef.
-                </p>
-                <div class="chef-signature">
-                    <span>Chef Mia Cucina</span>
+            <div class="chef-wrapper">
+                <div class="chef-content" data-aos="fade-right">
+                    <span class="section-label">Le Chef</span>
+                    <h2 class="section-title">De la Qualité, du Goût<br>et de la Saveur</h2>
+                    <p class="chef-text">
+                        Découvrez l'histoire de notre chef passionné. Chaque plat est une création unique,
+                        préparée avec soin et expertise, alliant tradition italienne et touches modernes.
+                    </p>
+                    <p class="chef-text">
+                        Notre cuisine raconte une histoire - celle de saveurs authentiques, d'ingrédients
+                        soigneusement sélectionnés et d'un savoir-faire transmis avec amour.
+                    </p>
+                    <div class="chef-signature">
+                        <span>Chef Mia Cucina</span>
+                    </div>
+                    <div class="chef-features">
+                        <div class="chef-feature">
+                            <i class="fas fa-medal"></i>
+                            <span>Excellence</span>
+                        </div>
+                        <div class="chef-feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Passion</span>
+                        </div>
+                        <div class="chef-feature">
+                            <i class="fas fa-leaf"></i>
+                            <span>Fraîcheur</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chef-video-container" data-aos="fade-left">
+                    <div class="chef-video-phone">
+                        <div class="phone-notch"></div>
+                        <video id="chefVideo" poster="assets/nos plats/langouste grillé.png" playsinline>
+                            <source src="assets/chef story.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-controls">
+                            <button class="video-play-btn" id="videoPlayBtn" aria-label="Lire la vidéo">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="video-progress">
+                            <div class="video-progress-bar" id="videoProgressBar"></div>
+                        </div>
+                    </div>
+                    <p class="video-caption">
+                        <i class="fas fa-play-circle"></i> Regardez l'histoire du Chef
+                    </p>
                 </div>
             </div>
         </div>
@@ -1300,7 +1326,7 @@
             </iframe>
         </div>
         <div class="map-overlay-card" data-aos="fade-up">
-            <img src="assets/logo.jpg" alt="Mia Cucina" class="map-logo">
+            <img src="assets/logo.png" alt="Mia Cucina" class="map-logo">
             <h4>Mia Cucina</h4>
             <p>Restaurant - Pizzeria</p>
             <div class="map-contact">
@@ -1315,7 +1341,7 @@
         <div class="container">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <img src="assets/logo.jpg" alt="Mia Cucina" class="footer-logo">
+                    <img src="assets/logo.png" alt="Mia Cucina" class="footer-logo">
                     <p class="footer-tagline">Restaurant - Pizzeria</p>
                     <p class="footer-desc">Cuisine Européenne • Spécialité Italienne</p>
                     <div class="footer-social">
