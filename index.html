@@ -10,10 +10,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -22,6 +25,14 @@
     <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <img src="assets/logo.jpg" alt="Mia Cucina">
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -30,18 +41,18 @@
             </a>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link active">Accueil</a>
-                <a href="#about" class="nav-link">À Propos</a>
-                <a href="#menu" class="nav-link">Nos Plats</a>
+                <a href="#about" class="nav-link">Notre Histoire</a>
+                <a href="#menu" class="nav-link">Menu</a>
                 <a href="#gallery" class="nav-link">Galerie</a>
                 <a href="#hours" class="nav-link">Horaires</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <div class="nav-actions">
-                <a href="tel:+22507684341" class="nav-phone">
-                    <i class="fas fa-phone"></i>
-                    <span>07 68 43 41 42</span>
+                <a href="tel:+2250768434142" class="nav-cta">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Réserver</span>
                 </a>
-                <button class="nav-toggle" id="nav-toggle">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -50,26 +61,54 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
     <section class="hero" id="home">
-        <div class="hero-overlay"></div>
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline class="hero-video" poster="assets/nos plats/langouste grillé.png">
+                <source src="assets/Restaurant à tester absolument. @mia_cucina__ La nourriture est juste exquise 🤤💯Une cadre chic.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
         <div class="hero-content">
-            <span class="hero-subtitle">Bienvenue chez</span>
-            <h1 class="hero-title">Mia Cucina</h1>
-            <p class="hero-tagline">Restaurant - Pizzeria</p>
-            <div class="hero-description">
-                <span class="hero-cuisine"><i class="fas fa-utensils"></i> Cuisine Européenne</span>
-                <span class="hero-divider">|</span>
-                <span class="hero-cuisine"><i class="fas fa-pizza-slice"></i> Spécialité Italienne</span>
+            <span class="hero-welcome" data-aos="fade-down">Benvenuti a</span>
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">
+                <span class="title-mia">Mia</span>
+                <span class="title-cucina">Cucina</span>
+            </h1>
+            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="400">Restaurant - Pizzeria</p>
+            <div class="hero-badges" data-aos="fade-up" data-aos-delay="600">
+                <div class="badge">
+                    <i class="fas fa-utensils"></i>
+                    <span>Cuisine Européenne</span>
+                </div>
+                <div class="badge-divider"></div>
+                <div class="badge">
+                    <i class="fas fa-pizza-slice"></i>
+                    <span>Spécialité Italienne</span>
+                </div>
             </div>
-            <div class="hero-buttons">
-                <a href="#menu" class="btn btn-primary">Découvrir nos plats</a>
-                <a href="tel:+2250768434142" class="btn btn-secondary">Réserver une table</a>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="800">
+                <a href="#menu" class="btn btn-primary">
+                    <span>Découvrir le Menu</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="tel:+2250768434142" class="btn btn-outline">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>07 68 43 41 42</span>
+                </a>
             </div>
         </div>
         <div class="hero-scroll">
             <a href="#about">
-                <i class="fas fa-chevron-down"></i>
+                <span>Scroll</span>
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
+            </a>
+        </div>
+        <div class="hero-socials">
+            <a href="https://www.instagram.com/mia_cucina__/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
             </a>
         </div>
     </section>
@@ -77,141 +116,1023 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <span class="section-subtitle">Notre Histoire</span>
-                    <h2 class="section-title">Un Nouveau Visage du Restaurant</h2>
-                    <p class="about-description">
-                        Bienvenue chez <strong>Mia Cucina</strong>, votre destination gastronomique au cœur d'Abidjan.
-                        Nous vous proposons une expérience culinaire exceptionnelle alliant les saveurs authentiques
-                        de la cuisine européenne avec une spécialisation dans les délices italiens.
-                    </p>
-                    <p class="about-description">
-                        Notre chef passionné prépare chaque plat avec des ingrédients frais et de qualité,
-                        pour vous offrir des moments de pur plaisir gustatif. Des pizzas artisanales aux
-                        pâtes fraîches, en passant par nos fruits de mer et viandes grillées, chaque
-                        création est une invitation au voyage culinaire.
-                    </p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-leaf"></i>
-                            <span>Ingrédients Frais</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-award"></i>
-                            <span>Chef Expérimenté</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-heart"></i>
-                            <span>Fait Maison</span>
-                        </div>
+            <div class="about-wrapper">
+                <div class="about-images" data-aos="fade-right">
+                    <div class="about-img-main">
+                        <img src="assets/nos plats/Carré d’agneau à la crème de truffe, parsemé de caviar d’huile d’olive.png" alt="Carré d'agneau">
+                    </div>
+                    <div class="about-img-secondary">
+                        <img src="assets/hot moments/happy client.png" alt="Clients satisfaits">
+                    </div>
+                    <div class="about-experience">
+                        <span class="exp-icon"><i class="fas fa-award"></i></span>
+                        <span class="exp-text">Excellence<br>Culinaire</span>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="about-img-wrapper">
-                        <img src="assets/nos plats/langouste grillé.png" alt="Langouste grillée Mia Cucina">
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-label">Notre Histoire</span>
+                    <h2 class="section-title">Un Nouveau Visage<br>du Restaurant</h2>
+                    <p class="about-lead">
+                        Chez <strong>Mia Cucina</strong>, nous vous invitons à découvrir une expérience gastronomique
+                        unique au cœur d'Abidjan.
+                    </p>
+                    <p class="about-text">
+                        Notre chef passionné crée des plats qui célèbrent les saveurs authentiques de la cuisine
+                        européenne avec une spécialisation dans l'art culinaire italien. Des ingrédients frais,
+                        une passion pour l'excellence, et un cadre élégant pour des moments inoubliables.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Produits Frais</h4>
+                                <p>Ingrédients sélectionnés</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Fait Maison</h4>
+                                <p>Préparations artisanales</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Avec Passion</h4>
+                                <p>Amour du métier</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="about-badge">
-                        <span class="badge-number">100%</span>
-                        <span class="badge-text">Qualité</span>
-                    </div>
+                    <a href="#menu" class="btn btn-dark">
+                        <span>Voir notre Menu</span>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Video Section -->
+    <section class="chef-section">
+        <div class="chef-video-wrapper">
+            <video autoplay muted loop playsinline class="chef-video">
+                <source src="assets/chef story.mp4" type="video/mp4">
+            </video>
+            <div class="chef-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="chef-content" data-aos="fade-up">
+                <span class="section-label light">Le Chef</span>
+                <h2 class="section-title light">De la Qualité, du Goût<br>et de la Saveur</h2>
+                <p class="chef-text">
+                    Chaque plat est une création unique, préparée avec soin et expertise par notre chef.
+                </p>
+                <div class="chef-signature">
+                    <span>Chef Mia Cucina</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section class="menu" id="menu">
+    <section class="menu-section" id="menu">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Nos Spécialités</span>
-                <h2 class="section-title">Découvrez Nos Plats</h2>
-                <p class="section-description">Une sélection raffinée de mets préparés avec passion</p>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">La Carte</span>
+                <h2 class="section-title">Notre Menu</h2>
+                <p class="section-subtitle">Une sélection raffinée de mets italiens et européens</p>
             </div>
 
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="assets/nos plats/côtes d'agneau.png" alt="Côtes d'agneau">
-                        <div class="menu-item-overlay">
-                            <span class="menu-item-category">Viandes</span>
-                        </div>
-                    </div>
-                    <div class="menu-item-content">
-                        <h3 class="menu-item-title">Côtes d'Agneau</h3>
-                        <p class="menu-item-description">Tendres côtes d'agneau grillées à la perfection</p>
-                    </div>
-                </div>
+            <!-- Menu Categories Navigation -->
+            <div class="menu-nav" data-aos="fade-up">
+                <button class="menu-nav-btn active" data-category="all">Tout</button>
+                <button class="menu-nav-btn" data-category="antipasti">Antipasti</button>
+                <button class="menu-nav-btn" data-category="pasta">Pâtes</button>
+                <button class="menu-nav-btn" data-category="pizza">Pizza</button>
+                <button class="menu-nav-btn" data-category="fish">Poissons</button>
+                <button class="menu-nav-btn" data-category="meat">Viandes</button>
+                <button class="menu-nav-btn" data-category="dessert">Desserts</button>
+            </div>
 
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="assets/nos plats/langouste grillé.png" alt="Langouste grillée">
-                        <div class="menu-item-overlay">
-                            <span class="menu-item-category">Fruits de Mer</span>
-                        </div>
+            <!-- ANTIPASTI FREDDI -->
+            <div class="menu-category" data-aos="fade-up" data-category="antipasti">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-seedling"></i>
                     </div>
-                    <div class="menu-item-content">
-                        <h3 class="menu-item-title">Langouste Grillée</h3>
-                        <p class="menu-item-description">Langouste fraîche grillée aux herbes aromatiques</p>
-                    </div>
+                    <h3 class="category-title">Entrées Froides</h3>
+                    <span class="category-subtitle">Antipasti Freddi</span>
                 </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="assets/nos plats/amatriciana.png" alt="Amatriciana">
-                        <div class="menu-item-overlay">
-                            <span class="menu-item-category">Pâtes</span>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Salade Caprese</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Tomates fraîches, mozzarella di bufala, basilic</p>
                         </div>
                     </div>
-                    <div class="menu-item-content">
-                        <h3 class="menu-item-title">Amatriciana</h3>
-                        <p class="menu-item-description">Pâtes traditionnelles à la sauce tomate et guanciale</p>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="assets/nos plats/nouilles italienne.png" alt="Nouilles italiennes">
-                        <div class="menu-item-overlay">
-                            <span class="menu-item-category">Pâtes</span>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Vitello Tonnato</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Veau sauce thon crémeuse</p>
                         </div>
                     </div>
-                    <div class="menu-item-content">
-                        <h3 class="menu-item-title">Nouilles Italiennes</h3>
-                        <p class="menu-item-description">Nouilles fraîches préparées selon la tradition</p>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="assets/nos plats/salade de poulpes.png" alt="Salade de poulpes">
-                        <div class="menu-item-overlay">
-                            <span class="menu-item-category">Entrées</span>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Duo de Carpaccio</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Carpaccio de bœuf et saumon</p>
                         </div>
                     </div>
-                    <div class="menu-item-content">
-                        <h3 class="menu-item-title">Salade de Poulpes</h3>
-                        <p class="menu-item-description">Poulpe tendre mariné aux saveurs méditerranéennes</p>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="assets/nos plats/Gratin de Pâtes au poulet.png" alt="Gratin de Pâtes">
-                        <div class="menu-item-overlay">
-                            <span class="menu-item-category">Pâtes</span>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Carpaccio de Bœuf</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Finement tranché, roquette, parmesan</p>
                         </div>
                     </div>
-                    <div class="menu-item-content">
-                        <h3 class="menu-item-title">Gratin de Pâtes au Poulet</h3>
-                        <p class="menu-item-description">Pâtes gratinées au poulet et fromage fondant</p>
+                    <div class="menu-card featured">
+                        <div class="menu-card-image">
+                            <img src="assets/nos plats/salad ceasar carrousel/1.jpg" alt="Salade César">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Salade César</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Poulet grillé, croûtons, sauce césar maison</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Salade de Saumon Fumé</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Saumon fumé, mesclun, câpres</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="menu-cta">
-                <a href="tel:+2250768434142" class="btn btn-primary">
-                    <i class="fas fa-phone"></i> Commander - 07 68 43 41 42
+            <!-- ANTIPASTI CALDI -->
+            <div class="menu-category" data-aos="fade-up" data-category="antipasti">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <h3 class="category-title">Entrées Chaudes</h3>
+                    <span class="category-subtitle">Antipasti Caldi</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card featured">
+                        <div class="menu-card-image">
+                            <img src="assets/nos plats/salade de poulpes.png" alt="Salade de Poulpes">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Salade de Poulpes</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Poulpe tendre mariné aux herbes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Calamars Frits</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Calamars croustillants, sauce tartare</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Moules Marinières</h4>
+                                <span class="dish-price">7.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Moules au vin blanc et persil</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Crevettes Poêlées</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Crevettes à l'ail et persil</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Salade de la Mer</h4>
+                                <span class="dish-price">13.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Assortiment de fruits de mer frais</p>
+                        </div>
+                    </div>
+                    <div class="menu-card chef-suggestion">
+                        <div class="suggestion-badge"><i class="fas fa-star"></i> Suggestion du Chef</div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Noix de Saint Jacques Truffée</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Saint Jacques, crème de truffe noire</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÂTES -->
+            <div class="menu-category" data-aos="fade-up" data-category="pasta">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-stroopwafel"></i>
+                    </div>
+                    <h3 class="category-title">Pâtes</h3>
+                    <span class="category-subtitle">Primi Piatti</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Arrabiata</h4>
+                                <span class="dish-price">8.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Sauce tomate piquante, piment</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">La Carbonara</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Guanciale, œuf, pecorino, poivre noir</p>
+                        </div>
+                    </div>
+                    <div class="menu-card featured">
+                        <div class="menu-card-image">
+                            <img src="assets/nos plats/amatriciana.png" alt="Amatriciana">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Amatriciana</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Guanciale, tomate, pecorino romano</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">La Bolognaise</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Ragù de viande mijotée</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Pâte Végétarienne</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Légumes de saison sautés</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Lasagne</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Lasagne traditionnelle au four</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Lasagne MiaCucina</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Notre recette signature</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Gnocchi alla Sorrentina</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Gnocchi, tomate, mozzarella, basilic</p>
+                        </div>
+                    </div>
+                    <div class="menu-card featured">
+                        <div class="menu-card-image">
+                            <img src="assets/nos plats/nouilles italienne.png" alt="Tagliatelle">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Tagliatelle Crème Champignons</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Crème, champignons, crevettes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Penne au Saumon</h4>
+                                <span class="dish-price">12.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Saumon fumé, crème, aneth</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Gnocchi 4 Fromages</h4>
+                                <span class="dish-price">13.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Gorgonzola, parmesan, fontina, mozzarella</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Pâte aux Fruits de Mer</h4>
+                                <span class="dish-price">13.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Assortiment de fruits de mer frais</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Pâte aux Truffes</h4>
+                                <span class="dish-price">13.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Crème de truffe noire</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Tagliatelle à la Langouste</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Langouste fraîche, sauce tomate</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Pâte Truffes & Lardons</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Truffe noire, lardons croustillants</p>
+                        </div>
+                    </div>
+                    <div class="menu-card chef-suggestion">
+                        <div class="suggestion-badge"><i class="fas fa-star"></i> Suggestion du Chef</div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Risotto Safran & Gambas</h4>
+                                <span class="dish-price">18.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Risotto crémeux au safran, gambas grillées</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POISSONS -->
+            <div class="menu-category" data-aos="fade-up" data-category="fish">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3 class="category-title">Poissons</h3>
+                    <span class="category-subtitle">Secondi Pesce</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Calamars Grillés</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Calamars tendres grillés aux herbes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Poulpe Poêlé</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Poulpe tendre à la plancha</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Sole Meunière</h4>
+                                <span class="dish-price">12.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Sole au beurre, citron, persil</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Capitaine Provençal</h4>
+                                <span class="dish-price">13.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Capitaine aux tomates, olives, herbes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Fritto Misto</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Assortiment de poissons frits</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Filet de Mérou</h4>
+                                <span class="dish-price">16.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Mérou sauce aux deux poivres</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Gambas Cameron</h4>
+                                <span class="dish-price">16.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Flambées, à la crème ou ail-persil</p>
+                        </div>
+                    </div>
+                    <div class="menu-card featured">
+                        <div class="menu-card-image">
+                            <img src="assets/nos plats/langouste grillé.png" alt="Langouste Grillée">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Langouste Grillée</h4>
+                                <span class="dish-price">20.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Langouste fraîche grillée aux herbes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card chef-suggestion">
+                        <div class="suggestion-badge"><i class="fas fa-star"></i> Suggestion du Chef</div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Pavé de Saumon</h4>
+                                <span class="dish-price">17.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Épinards frais, crème fraîche</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIANDES -->
+            <div class="menu-category" data-aos="fade-up" data-category="meat">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3 class="category-title">Viandes</h3>
+                    <span class="category-subtitle">Secondi Carne</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Escalope de Poulet</h4>
+                                <span class="dish-price">11.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Crème de champignons</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Brochettes de Bœuf</h4>
+                                <span class="dish-price">11.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Bœuf tendre mariné</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Côte de Porc</h4>
+                                <span class="dish-price">12.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Côte de porc dans l'échine</p>
+                        </div>
+                    </div>
+                    <div class="menu-card featured">
+                        <div class="menu-card-image">
+                            <img src="assets/nos plats/côtes d'agneau.png" alt="Côtes d'Agneau">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Filet de Bœuf</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Filet tendre grillé à point</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Confit de Canard</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Cuisse confite traditionnelle</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Steak Valtellinèse</h4>
+                                <span class="dish-price">16.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Spécialité de la Valteline</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Côte de Veau Charolais</h4>
+                                <span class="dish-price">16.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Beurre maître d'hôtel</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Souris d'Agneau</h4>
+                                <span class="dish-price">17.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Confite aux herbes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Filet de Bœuf Argentine</h4>
+                                <span class="dish-price">19.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Bœuf argentin premium</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Jarret de Veau Rôti</h4>
+                                <span class="dish-price">20.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Pour 2 personnes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Entrecôte Hollande</h4>
+                                <span class="dish-price">22.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Aux échalotes confites</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Magret de Canard</h4>
+                                <span class="dish-price">25.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Purée truffée</p>
+                        </div>
+                    </div>
+                    <div class="menu-card chef-suggestion">
+                        <div class="suggestion-badge"><i class="fas fa-star"></i> Suggestion du Chef</div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Côte de Bœuf à la Plancha</h4>
+                                <span class="dish-price">21.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Grillée à la perfection</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sauces -->
+                <div class="sauces-note">
+                    <span class="sauces-title"><i class="fas fa-plus-circle"></i> Sauces (Supplément 2.000 FCFA)</span>
+                    <p>Deux Poivres • Champignons • Crème • Roquefort • Truffée</p>
+                </div>
+            </div>
+
+            <!-- PIZZA -->
+            <div class="menu-category" data-aos="fade-up" data-category="pizza">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <h3 class="category-title">Pizza</h3>
+                    <span class="category-subtitle">Le Pizze</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Margherita</h4>
+                                <span class="dish-price">7.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Tomate, mozzarella, basilic</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Végétarienne</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Légumes frais de saison</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Diavola</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Salami piquant, piment</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Calzone Lico</h4>
+                                <span class="dish-price">9.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Pizza chausson garnie</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Regina</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Jambon, champignons</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Romana</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Anchois, câpres, olives</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Napoli</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Anchois, olives, origan</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Capricciosa</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Jambon, artichauts, champignons, olives</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">4 Saisons</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">4 garnitures distinctes</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Calzone Farcito</h4>
+                                <span class="dish-price">10.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Chausson farci généreux</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Fermière</h4>
+                                <span class="dish-price">13.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Poulet, légumes grillés</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Parma</h4>
+                                <span class="dish-price">13.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Jambon de Parme, roquette</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">MiaCucina</h4>
+                                <span class="dish-price">14.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Notre création signature</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Aux Truffes</h4>
+                                <span class="dish-price">14.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Crème de truffe noire</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Fruits de Mer</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Crevettes, calamars, moules</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">4 Fromages</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Mozzarella, gorgonzola, parmesan, chèvre</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Saumon</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Saumon fumé, crème fraîche</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Truffes & Lardons</h4>
+                                <span class="dish-price">15.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Truffe noire, lardons croustillants</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BURGER & PANINI -->
+            <div class="menu-category" data-aos="fade-up" data-category="all">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <h3 class="category-title">Burgers & Panini</h3>
+                    <span class="category-subtitle">Snack</span>
+                </div>
+                <div class="menu-grid menu-grid-compact">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Crispy Burger</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Poulet croustillant</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Cheeseburger</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Bœuf, cheddar fondu</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Burger MiaCucina</h4>
+                                <span class="dish-price">8.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Notre création signature</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Panini Jambon</h4>
+                                <span class="dish-price">4.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Jambon, fromage</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Panini Poulet</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Poulet grillé, crudités</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Panini Bœuf</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Bœuf émincé, sauce maison</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESSERTS -->
+            <div class="menu-category" data-aos="fade-up" data-category="dessert">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <h3 class="category-title">Desserts</h3>
+                    <span class="category-subtitle">Dolci</span>
+                </div>
+                <div class="menu-grid menu-grid-compact">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Glace</h4>
+                                <span class="dish-price">2.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">2 boules au choix</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Carpaccio de Fruits</h4>
+                                <span class="dish-price">4.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Fruits de saison</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Tiramisu</h4>
+                                <span class="dish-price">5.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Recette traditionnelle</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Fondant au Chocolat</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Cœur coulant</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Crema Catalana</h4>
+                                <span class="dish-price">6.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">Crème brûlée espagnole</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MENU ENFANT -->
+            <div class="menu-category" data-aos="fade-up" data-category="all">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="category-title">Menu Enfant</h3>
+                    <span class="category-subtitle">Menù Bambini</span>
+                </div>
+                <div class="menu-grid menu-grid-compact">
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Escalope de Poulet Pané</h4>
+                                <span class="dish-price">7.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">+ Frites ou purée</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Filet de Poisson Pané</h4>
+                                <span class="dish-price">8.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">+ Frites ou purée</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h4 class="dish-name">Cordon Bleu</h4>
+                                <span class="dish-price">8.000 <small>FCFA</small></span>
+                            </div>
+                            <p class="dish-desc">+ Frites ou purée</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCOMPAGNEMENTS -->
+            <div class="accompaniments-banner" data-aos="fade-up">
+                <div class="accompaniments-content">
+                    <h4><i class="fas fa-plus-circle"></i> Accompagnements</h4>
+                    <p class="accompaniments-list">
+                        Salade Mixte • Frites • Purée de Pommes de Terre • Pommes Sautées • Alloco • Haricots Verts • Brocoli
+                    </p>
+                    <span class="accompaniments-note">Supplément : 2.000 FCFA</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Drinks Section -->
+    <section class="drinks-section">
+        <div class="drinks-bg">
+            <img src="assets/nos boisson/Le Cognac sunset.png" alt="Cocktail">
+        </div>
+        <div class="drinks-overlay"></div>
+        <div class="container">
+            <div class="drinks-content" data-aos="fade-up">
+                <span class="section-label light">Nos Boissons</span>
+                <h2 class="section-title light">Cocktails & Apéritifs</h2>
+                <p class="drinks-text">
+                    Accompagnez votre repas de nos cocktails signatures et vins sélectionnés
+                </p>
+                <a href="tel:+2250768434142" class="btn btn-light">
+                    <i class="fas fa-glass-cheers"></i>
+                    <span>Réserver une table</span>
                 </a>
             </div>
         </div>
@@ -220,182 +1141,171 @@
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Notre Ambiance</span>
-                <h2 class="section-title">Galerie Photos</h2>
-                <p class="section-description">Découvrez l'atmosphère chaleureuse de Mia Cucina</p>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Galerie</span>
+                <h2 class="section-title">Nos Moments</h2>
+                <p class="section-subtitle">Découvrez l'ambiance chaleureuse de Mia Cucina</p>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item gallery-item-large">
+            <div class="gallery-grid" data-aos="fade-up">
+                <div class="gallery-item gallery-item-lg">
+                    <img src="assets/nos plats/langouste grillé.png" alt="Langouste grillée">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
                     <img src="assets/nos plats/salad ceasar carrousel/1.jpg" alt="Salade César">
                     <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
+                        <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/nos plats/salad ceasar carrousel/2.jpg" alt="Préparation salade">
+                    <img src="assets/nos plats/amatriciana.png" alt="Amatriciana">
                     <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/nos plats/salad ceasar carrousel/3.jpg" alt="Détail salade">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/hot moments/happy client.png" alt="Clients satisfaits">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/nos boisson/Le Cognac sunset.png" alt="Cocktail Cognac Sunset">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
+                        <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="assets/nos boisson/apero.png" alt="Apéritif">
                     <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
+                        <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
+                <div class="gallery-item">
+                    <img src="assets/nos plats/côtes d'agneau.png" alt="Côtes d'agneau">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-lg">
+                    <img src="assets/hot moments/happy client.png" alt="Clients satisfaits">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos plats/salade de poulpes.png" alt="Salade de poulpes">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos plats/nouilles italienne.png" alt="Nouilles italiennes">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos boisson/Le Cognac sunset.png" alt="Cognac Sunset">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/nos plats/Gratin de Pâtes au poulet.png" alt="Gratin de pâtes">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram CTA -->
+            <div class="instagram-cta" data-aos="fade-up">
+                <a href="https://www.instagram.com/mia_cucina__/" target="_blank" class="instagram-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Suivez-nous sur Instagram</span>
+                    <span class="instagram-handle">@mia_cucina__</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Hours Section -->
-    <section class="hours" id="hours">
-        <div class="hours-overlay"></div>
+    <!-- Hours & Location Section -->
+    <section class="info-section" id="hours">
         <div class="container">
-            <div class="hours-content">
-                <div class="hours-info">
-                    <span class="section-subtitle">Quand Nous Visiter</span>
-                    <h2 class="section-title">Horaires d'Ouverture</h2>
+            <div class="info-wrapper">
+                <div class="hours-card" data-aos="fade-right">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Horaires d'Ouverture</h3>
                     <div class="hours-list">
-                        <div class="hours-item closed">
+                        <div class="hours-row closed">
                             <span class="day">Lundi</span>
                             <span class="time">Fermé</span>
                         </div>
-                        <div class="hours-item">
-                            <span class="day">Mardi</span>
+                        <div class="hours-row">
+                            <span class="day">Mardi - Jeudi</span>
                             <span class="time">11:00 - 23:00</span>
                         </div>
-                        <div class="hours-item">
-                            <span class="day">Mercredi</span>
-                            <span class="time">11:00 - 23:00</span>
-                        </div>
-                        <div class="hours-item">
-                            <span class="day">Jeudi</span>
-                            <span class="time">11:00 - 23:00</span>
-                        </div>
-                        <div class="hours-item">
-                            <span class="day">Vendredi</span>
+                        <div class="hours-row">
+                            <span class="day">Vendredi - Samedi</span>
                             <span class="time">11:00 - 00:00</span>
                         </div>
-                        <div class="hours-item">
-                            <span class="day">Samedi</span>
-                            <span class="time">11:00 - 00:00</span>
-                        </div>
-                        <div class="hours-item">
+                        <div class="hours-row">
                             <span class="day">Dimanche</span>
                             <span class="time">12:00 - 23:00</span>
                         </div>
                     </div>
                 </div>
-                <div class="hours-reservation">
-                    <div class="reservation-card">
-                        <i class="fas fa-concierge-bell"></i>
-                        <h3>Réservation</h3>
-                        <p>Pour une meilleure expérience, nous vous recommandons de réserver votre table</p>
-                        <a href="tel:+2250768434142" class="btn btn-primary">
-                            <i class="fas fa-phone"></i> 07 68 43 41 42
+
+                <div class="reservation-card" data-aos="fade-up">
+                    <div class="reservation-content">
+                        <span class="reservation-label">Réservation</span>
+                        <h3>Une Table Vous Attend</h3>
+                        <p>Pour une expérience optimale, réservez votre table</p>
+                        <a href="tel:+2250768434142" class="phone-cta">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>07 68 43 41 42</span>
                         </a>
+                        <div class="reservation-options">
+                            <span><i class="fas fa-check"></i> Commande</span>
+                            <span><i class="fas fa-check"></i> Réservation</span>
+                            <span><i class="fas fa-check"></i> Livraison</span>
+                        </div>
                     </div>
+                </div>
+
+                <div class="location-card" data-aos="fade-left">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Notre Adresse</h3>
+                    <address>
+                        <p>Après la Bridge Bank</p>
+                        <p>Rue du Commerce, Plateau</p>
+                        <p>Abidjan, Côte d'Ivoire</p>
+                    </address>
+                    <a href="https://www.google.com/maps/place/MiaCucina/@5.3271506,-4.003805,17z" target="_blank" class="directions-btn">
+                        <i class="fas fa-directions"></i>
+                        <span>Itinéraire</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Nous Trouver</span>
-                <h2 class="section-title">Contact & Localisation</h2>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Adresse</h4>
-                                <p>Après la Bridge Bank<br>Rue du Commerce, Plateau<br>Abidjan, Côte d'Ivoire</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Téléphone</h4>
-                                <p><a href="tel:+2250768434142">07 68 43 41 42</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Site Web</h4>
-                                <p><a href="https://mia_cucina.ci" target="_blank">mia_cucina.ci</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Instagram</h4>
-                                <p><a href="https://www.instagram.com/mia_cucina__/" target="_blank">@mia_cucina__</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-social">
-                        <a href="https://www.instagram.com/mia_cucina__/" target="_blank" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="tel:+2250768434142" class="social-link" aria-label="Téléphone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="https://www.google.com/maps/place/MiaCucina/@5.3271506,-4.003805,17z" target="_blank" class="social-link" aria-label="Google Maps">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="contact-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.5!2d-4.003805!3d5.3271506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eb729f32b6bb%3A0xc10aa3b3b1d1372d!2sMiaCucina!5e0!3m2!1sfr!2sci!4v1702500000000!5m2!1sfr!2sci"
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+    <!-- Map Section -->
+    <section class="map-section" id="contact">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.5!2d-4.003805!3d5.3271506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eb729f32b6bb%3A0xc10aa3b3b1d1372d!2sMiaCucina!5e0!3m2!1sfr!2sci!4v1702500000000!5m2!1sfr!2sci"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="map-overlay-card" data-aos="fade-up">
+            <img src="assets/logo.jpg" alt="Mia Cucina" class="map-logo">
+            <h4>Mia Cucina</h4>
+            <p>Restaurant - Pizzeria</p>
+            <div class="map-contact">
+                <a href="tel:+2250768434142"><i class="fas fa-phone-alt"></i> 07 68 43 41 42</a>
+                <a href="https://www.instagram.com/mia_cucina__/" target="_blank"><i class="fab fa-instagram"></i> @mia_cucina__</a>
             </div>
         </div>
     </section>
@@ -403,47 +1313,64 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-main">
                 <div class="footer-brand">
-                    <img src="assets/logo.jpg" alt="Mia Cucina Logo" class="footer-logo">
+                    <img src="assets/logo.jpg" alt="Mia Cucina" class="footer-logo">
                     <p class="footer-tagline">Restaurant - Pizzeria</p>
-                    <p class="footer-description">Cuisine Européenne & Spécialité Italienne</p>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <a href="#home">Accueil</a>
-                    <a href="#about">À Propos</a>
-                    <a href="#menu">Nos Plats</a>
-                    <a href="#gallery">Galerie</a>
-                    <a href="#hours">Horaires</a>
-                    <a href="#contact">Contact</a>
-                </div>
-
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-phone"></i> 07 68 43 41 42</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Plateau, Abidjan</p>
+                    <p class="footer-desc">Cuisine Européenne • Spécialité Italienne</p>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/mia_cucina__/" target="_blank" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
+                        <a href="tel:+2250768434142" aria-label="Téléphone">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                        <a href="https://www.google.com/maps/place/MiaCucina/@5.3271506,-4.003805,17z" target="_blank" aria-label="Localisation">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
                     </div>
                 </div>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <a href="#home">Accueil</a>
+                    <a href="#about">Notre Histoire</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#gallery">Galerie</a>
+                    <a href="#hours">Horaires</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone-alt"></i> 07 68 43 41 42</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Plateau, Abidjan</p>
+                    <p><i class="fas fa-globe"></i> mia_cucina.ci</p>
+                </div>
+                <div class="footer-hours">
+                    <h4>Horaires</h4>
+                    <p>Mar - Jeu: 11h - 23h</p>
+                    <p>Ven - Sam: 11h - 00h</p>
+                    <p>Dimanche: 12h - 23h</p>
+                    <p class="closed">Lundi: Fermé</p>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2024 Mia Cucina. Tous droits réservés.</p>
+                <p>&copy; <span id="currentYear">2024</span> Mia Cucina. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
+    <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
-        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Fermer">&times;</button>
+        <img src="" alt="" class="lightbox-img">
+    </div>
+
     <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
