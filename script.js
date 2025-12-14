@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const backToTop = document.getElementById('backToTop');
     const sections = document.querySelectorAll('section[id]');
-    const menuNavBtns = document.querySelectorAll('.menu-nav-btn');
-    const menuCategories = document.querySelectorAll('.menu-category');
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
@@ -160,51 +158,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ===================================
-    // MENU CATEGORY FILTER
+    // MENU PREVIEW CARDS ANIMATION
     // ===================================
-    menuNavBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            menuNavBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const category = btn.dataset.category;
-
-            // Filter categories
-            menuCategories.forEach(cat => {
-                const catCategory = cat.dataset.category;
-
-                if (category === 'all') {
-                    cat.style.display = 'block';
-                    setTimeout(() => {
-                        cat.style.opacity = '1';
-                        cat.style.transform = 'translateY(0)';
-                    }, 50);
-                } else if (catCategory === category || catCategory === 'all') {
-                    cat.style.display = 'block';
-                    setTimeout(() => {
-                        cat.style.opacity = '1';
-                        cat.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    cat.style.opacity = '0';
-                    cat.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        cat.style.display = 'none';
-                    }, 300);
-                }
-            });
-
-            // Refresh AOS
-            setTimeout(() => {
-                AOS.refresh();
-            }, 350);
+    const menuPreviewCards = document.querySelectorAll('.menu-preview-card');
+    menuPreviewCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.zIndex = '10';
         });
-    });
-
-    // Add transition to categories
-    menuCategories.forEach(cat => {
-        cat.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
     });
 
     // ===================================
